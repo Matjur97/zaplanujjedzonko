@@ -1,0 +1,18 @@
+// COLORS
+
+$nav-color: #5B605F; // panel boczny, nawigacja
+$header-color: #4a4a49; // nagłówek, , kolor tekstu w kolumnach
+$buttons-color: #FF6600; //- przyciski, wyróżnienia, nagłówki ekranów
+$backgrd-color: #FFFFFA; // kolor tła ekranów
+$info-color: #3498DB; // kolor wiadomości typu info,
+$warn-color: #FFB03B; // kolor wiadomości typu warning
+$succes-color: #468966; // kolor wiadomości typu success
+$trash-color: #BD4932; // kolor ikony kosza
+$func-color: #A1A194; // kolor tekstu z wierszy w tabelach, ikony rozszerzonych funkcji
+
+// FONTS
+
+@import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+$accent-font: 'Charmonman', cursive; // logo
+$main-font: 'Open Sans', sans-serif; // tekst

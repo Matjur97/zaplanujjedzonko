@@ -1,0 +1,66 @@
+@import "../_variables/variables";
+
+.application{
+    .logout-page{
+        background-color: grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        .container-logout{
+            border: 1px dashed grey;
+            background-color: white;
+            height: 90%;
+            width: 90%;
+            .content{
+                margin: 7em auto;
+                height: 13em;
+                width: 25em;
+    
+                h1{
+                    font-size: 2.5em;
+                    font-weight: normal;
+                    text-align: center;
+                }
+                h2{
+                    font-size: 1.8em;
+                    font-weight: normal;
+                    text-align: center;
+                    padding: 15px 0;
+                }
+                form{
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 200px;
+                    padding: 15px 0;
+                    input{
+                        &:first-of-type{
+                            width: 200px;
+                            padding: 2px;
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+                h3{
+                    font-size: 1.4em;
+                    font-weight: normal;
+                    text-align: center;
+                }
+                .warn{
+                    font-size: 1em;
+                    font-weight: bold;
+                    color: red;
+                    .disabled{
+                        display: none;
+                    }
+                    span{
+                        padding: 4px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,104 @@
+@import "../_variables/variables";
+
+.application{
+    .display-add-recipe{
+        height: 100%;
+        width: 100%;
+        .add-recipe-page{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            .container-recipe{
+                margin: auto;
+                height: 90%;
+                width: 90%;
+                border: 1px dashed $func-color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .content-recipe{
+                    width: 95%;
+                    height: 95%;
+                    .header{
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: 1px solid $func-color;
+                        h1{
+                            text-transform: uppercase;
+                            color: $buttons-color;
+                            font-size: 1.5em;
+                            padding: 2px;
+                        }
+                        button{
+                            background-color: $buttons-color;
+                            border: none;
+                            margin-bottom: 4px;
+                            a{
+                                color: white;
+                                font-weight: bold;
+                                font-size: 1.1em;
+                                padding: 1px 10px;
+                            }
+                        }
+                    }
+                    .about-recipe{
+                        form{
+                            display: flex;
+                            flex-direction: column;
+                            label{
+                                display: flex;
+                                justify-content: space-between;
+                                margin: 0.5em;
+                                font-size: 1.3em;
+                                input{
+                                    width: 80%;
+                                    word-wrap: break-word;
+                                }
+                                textarea{
+                                    width: 80%;
+                                    max-height: 4em;
+                                    overflow-wrap: break-word;
+                                }
+                            }
+                        }
+                    }
+                    .recipe-instruction{
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 2em;
+                        .recipe{
+                            width: 46%;
+                            h1{
+                                border-bottom: 1px solid $func-color;
+                                text-transform: uppercase;
+                                margin-bottom: 4px;
+                            }
+                            form{
+                                display: flex;
+                                align-items: flex-start;
+                                input{
+                                    width: 90%;
+                                    font-size: 1.2em;
+                                    margin-top: 6px;
+                                }
+                                textarea{
+                                    width: 90%;
+                                    font-size: 1.2em;
+                                    margin-top: 6px;
+                                }
+                                button{
+                                    border:none;
+                                    color: $succes-color;
+                                    font-size: 2em;
+                                    padding: 6px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

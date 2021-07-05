@@ -1,0 +1,13 @@
+@import "../_variables/variables";
+
+.layout{
+    display: flex;
+    .navigation{
+        height: 90vh;
+        width: 18vw;
+    }
+    .application{
+        height: 90vh;
+        width: 82vw;
+    }
+}

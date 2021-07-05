@@ -1,0 +1,93 @@
+@import "../_variables/variables";
+
+.application{
+    .display-schedule-list{
+        height: 100%;
+        width: 100%;
+        .schedule-list-page{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            .container-schedule{
+                margin: auto;
+                height: 90%;
+                width: 90%;
+                border: 1px dashed $func-color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .content-schedule{
+                    width: 95%;
+                    height: 95%;
+                    .header{
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: 1px solid $func-color;
+                        h1{
+                            text-transform: uppercase;
+                            color: $buttons-color;
+                            font-size: 1.5em;
+                            padding: 2px;
+                        }
+                        button{
+                            color: $succes-color;
+                            border: none;
+                            margin-bottom: 4px;
+                            font-size: 2.2em;
+                        }
+                    }
+                    .schedule-table{
+                        margin: 6px 0;
+                        table{
+                            width: 100%;
+                            .titles{
+                                th{
+                                    text-align: start;
+                                    text-transform: uppercase;
+                                    font-size: 1.5em;
+                                    &:first-of-type{
+                                        width: 8.33%;
+                                    }
+                                    &:nth-of-type(2){
+                                        width: 16.66%;
+                                    }
+                                    &:nth-of-type(3){
+                                        width: 56.33%;
+                                    }
+                                    &:nth-last-of-type(2){
+                                        width: 10.33%;
+                                    }
+                                    &:last-of-type{
+                                        width: 8.3%;
+                                    }
+                                }
+                            }
+                            td{
+                                text-align: start;
+                                text-transform: uppercase;
+                                font-size: 1.5em;
+                                &:first-of-type{
+                                    width: 8.33%;
+                                }
+                                &:nth-of-type(2){
+                                    width: 16.66%;
+                                }
+                                &:nth-of-type(3){
+                                    width: 56.33%;
+                                }
+                                &:nth-last-of-type(2){
+                                    width: 10.33%;
+                                }
+                                &:last-of-type{
+                                    width: 8.3%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

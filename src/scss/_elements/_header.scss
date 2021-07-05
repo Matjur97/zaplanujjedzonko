@@ -1,0 +1,44 @@
+@import "../_variables/variables";
+
+header{
+    &.head-main{
+        background-color: $header-color;
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        .page-title{
+            margin: auto 0;
+            padding-left: 40px;
+            span{
+                &.first{
+                    font-weight: 100;
+                    color: white;
+                    font-family: $accent-font;
+                }
+                &.second{
+                    font-weight: 700; 
+                    color: $buttons-color;
+                    font-family: $accent-font;
+                }
+            }    
+        }
+        .user-info{
+            margin: auto 70px;
+            display: flex;
+            #user{
+                font-size: 30px;
+                color: white;
+            }
+            i{
+                font-size: 40px;
+                color: $buttons-color;
+                margin-left: 25px;
+            }
+            button{
+                background: none;
+                border: none;
+            }
+        }
+    }
+}

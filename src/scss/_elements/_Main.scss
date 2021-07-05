@@ -1,0 +1,117 @@
+@import "../_variables/variables";
+
+.application {
+    .main-page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        .container-app {
+            margin: auto;
+            height: 90%;
+            width: 90%;
+            .features {
+                display: flex;
+                height: 30%;
+                .widgets {
+                    display: flex;
+                    .add {
+                        border: 1px dashed $succes-color;
+                        height: 12em;
+                        width: 12em;
+                        margin-right: 2em;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        i {
+                            color: $succes-color;
+                            font-size: 5em;
+                        }
+                        h3 {
+                            color: $succes-color;
+                            font-weight: normal;
+                            margin-top: 1em;
+                        }
+                    }
+                }
+                .notifications {
+                    .notif {
+                        display: flex;
+                        align-items: center;
+                        border: 1px dashed;
+                        margin-bottom: 0.6em;
+                        i {
+                            font-size: 2.5em;
+                            margin: 0.2em 0.4em;
+                        }
+                        h3 {
+                            font-size: 1.5em;
+                            margin-right: 0.7em;
+                        }
+                    }
+                    .notif-info {
+                        color: $info-color;
+                        border-color: $info-color;
+                    }
+                    .notif-warn {
+                        color: $warn-color;
+                        border-color: $warn-color;
+                    }
+                    .notif-hello {
+                        color: $succes-color;
+                        border-color: $succes-color;
+                    }
+                }
+            }
+            .week-plan {
+                border: 1px dashed black;
+                height: 70%;
+                .plan-table {
+                    height: 96%;
+                    // width: 95%;
+                    display: flex;
+                    flex-direction: column;
+                    table {
+                        height: 100%;
+                        width: 94%;
+                        margin-left: 2em;
+                        border-bottom: 1px solid $func-color;
+                        border-collapse: collapse;
+                        tr {
+                            &.title {
+                                color: $buttons-color;
+                                font-size: 1.2em;
+                                height: 60px;
+                                border-bottom: 1px solid $func-color;
+                            }
+                            &.day {
+                                font-size: 1.3em;
+                                font-weight: bold;
+                                height: 60px;
+                            }
+                            td{
+                                border-bottom: 1px solid $func-color;
+                                overflow-wrap: break-word;
+                                font-size: 1.1em;
+                            }
+                        }
+                    }
+                    .change-week{
+                        margin: 0 2em;
+                        padding-top: 0.8em;
+                        display: flex;
+                        justify-content: space-between;
+                        a{
+                            color: $buttons-color;
+                            i{
+                                margin: 0 0.2em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
