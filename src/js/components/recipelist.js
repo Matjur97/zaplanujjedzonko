@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+    HashRouter,
+    Route,
+    Link,
+    Switch,
+    NavLink,
+} from 'react-router-dom';
 import '../../scss/style.scss';
 
 const RecipeList = () => {
@@ -10,7 +17,7 @@ const RecipeList = () => {
                         <div className="content-recipe">
                             <div className="header">
                                 <h1>lista przepisów</h1>
-                                <button className="fas fa-plus-square"></button>
+                                <Link to="/addRecipe"><i className="fas fa-plus-square"></i></Link>
                             </div>
                             <div className="recipe-table">
                                 <table>

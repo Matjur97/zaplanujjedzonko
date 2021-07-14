@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+    HashRouter,
+    Route,
+    Link,
+    Switch,
+    NavLink,
+} from 'react-router-dom';
 import '../../scss/style.scss';
 
 const ScheduleList = () => {
@@ -10,7 +17,7 @@ const ScheduleList = () => {
                     <div className="content-schedule">
                         <div className="header">
                             <h1>lista planów</h1>
-                            <button className="fas fa-plus-square"></button>
+                            <Link to="/addSchedule"><i class="fas fa-plus-square"></i></Link>
                         </div>
                         <div className="schedule-table">
                             <table>

@@ -9,6 +9,18 @@ import {
 import '../../scss/style.scss';
 
 const WeekPlan = () => {
+    const [scheduleList, setScheduleList] = useState(null);
+    const [weekNumber, setWeekNumber] = useState()
+
+    useEffect(() => {
+        fetch(`http://localhost:3005/schedules?user=${localUser}&week=${weekNumber}`)
+            .then(res => res.json())
+            .then(data => data)
+            .then(recipesList => setRecipesList(recipesList))
+            .catch((err) => console.warn(err))
+    }, []);
+
+    
     return (
         <div className="plan-table">
             <table>

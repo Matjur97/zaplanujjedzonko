@@ -15,7 +15,7 @@ export const getUser = (successCallback) => {
 };
 
 export const createUser = (userName, successCallback) => {
-    fetch(`${API}/users/${localUser}`, {
+    fetch(`${API}/users/`, {
         headers: {
             "Content-Type": "application/json",
         },
@@ -31,6 +31,36 @@ export const createUser = (userName, successCallback) => {
         .catch(err => console.warn(err));
 };
 
-export const createRecipe = (recipeName, description, instruction, ingredients, successCallback) => {
-    fetch(`${API}/users/`)
+export const createRecipe = (newRecipe) => {
+    fetch(`${API}/recipes`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(newRecipe),
+    })
+    .then(response => response.json())
+    .then(newRecipe => {
+        console.log(newRecipe)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+export const createSchedule = (newSchedule) => {
+    fetch(`${API}/schedules`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(newSchedule),
+    })
+    .then(response => response.json())
+    .then(newSchedule => {
+        console.log(newSchedule)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 }

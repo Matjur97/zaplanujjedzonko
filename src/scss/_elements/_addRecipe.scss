@@ -44,6 +44,15 @@
                         }
                     }
                     .about-recipe{
+                        .warn{
+                            span{
+                                color: red;
+                                margin-right: 4px;
+                                &.disabled{
+                                    display: none;
+                                }
+                            }
+                        }
                         form{
                             display: flex;
                             flex-direction: column;
@@ -93,6 +102,24 @@
                                     color: $succes-color;
                                     font-size: 2em;
                                     padding: 6px;
+                                }
+                            }
+                        }
+                    }
+                    .list{
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 1em;
+                        .list-map{
+                            width: 46%;
+                            word-wrap: break-word;
+                            ul{
+                                list-style: none;
+                                li{
+                                    font-size: 1.1em;
+                                    span{
+                                        font-weight: bold;
+                                    }
                                 }
                             }
                         }
