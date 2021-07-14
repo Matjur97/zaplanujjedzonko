@@ -13,20 +13,33 @@ const WeekPlan = () => {
     const [weekNumber, setWeekNumber] = useState()
 
     useEffect(() => {
+        const currentdate = new Date();
+        const oneJan = new Date(currentdate.getFullYear(), 0, 1);
+        const numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
+        const result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
+        setWeekNumber(result)
+    }, [])
+
+    const localUser = localStorage.getItem('userName')
+    const asd = weekNumber
+
+    useEffect(() => {
         fetch(`http://localhost:3005/schedules?user=${localUser}&week=${weekNumber}`)
             .then(res => res.json())
             .then(data => data)
-            .then(recipesList => setRecipesList(recipesList))
+            .then(scheduleList => setScheduleList(scheduleList))
             .catch((err) => console.warn(err))
     }, []);
 
-    
+    console.log(scheduleList)
+    console.log(weekNumber)
+
     return (
         <div className="plan-table">
             <table>
                 <tbody>
                     <tr className="title">
-                        <th colSpan="7" >Twój plan na nr_tygodnia tydzień:</th>
+                        <th colSpan="7" >Twój plan na {weekNumber} tydzień:</th>
                     </tr>
                     <tr className="day">
                         <td>Poniedziałek</td>
@@ -85,8 +98,8 @@ const WeekPlan = () => {
                 </tbody>
             </table>
             <div className="change-week">
-                <a><i class="fas fa-chevron-left"></i>poprzedni</a>
-                <a>następny<i class="fas fa-chevron-right"></i></a>
+                <button onClick={() => setWeekNumber(weekNumber - 1)}><i class="fas fa-chevron-left"></i>poprzedni</button>
+                <button onClick={() => setWeekNumber(weekNumber + 1)}>następny<i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     )
