@@ -1,11 +1,4 @@
 import React from 'react';
-import {
-    HashRouter,
-    Route,
-    Link,
-    Switch,
-    NavLink,
-  } from 'react-router-dom';
 import '../../scss/style.scss';
 
 const HeaderMain = () => {

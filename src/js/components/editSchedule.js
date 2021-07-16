@@ -1,8 +1,8 @@
 import React, { useEffect, useState, } from 'react';
 import { Link } from 'react-router-dom';
-import { createSchedule} from './dataFunc';
-
+import { putSchedule } from './dataFunc';
 import '../../scss/style.scss';
+
 
 const AddSchedule = () => {
     const [schedule, setSchedule] = useState({
@@ -50,9 +50,10 @@ const AddSchedule = () => {
     const [recipesList, setRecipesList] = useState(null);
     const [warn, setWarn] = useState("");
     const [warnIcon, setWarnIcon] = useState("disabled");
-    const [createScheduleValid, setcreateScheduleValid] = useState(false);
+    const [updateScheduleValid, setUpdateScheduleValid] = useState(true);
 
     const localUser = localStorage.getItem('userName')
+    const editID = localStorage.getItem('editScheduleID')
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -76,6 +77,19 @@ const AddSchedule = () => {
     };
 
     useEffect(() => {
+        fetch(`http://localhost:3005/schedules/${editID}`)
+        .then(res => res.json())
+        .then(data => {
+            setSchedule({name: data.scheduleName,
+                description: data.description,
+                week: data.week
+            })
+            setRecipeSelect(data.recipes)
+        })
+        .catch(err => console.warn(err))
+    }, [])
+
+    useEffect(() => {
         fetch(`http://localhost:3005/recipes?user=${localUser}`)
             .then(res => res.json())
             .then(data => data)
@@ -88,38 +102,45 @@ const AddSchedule = () => {
         if (schedule.name.length > 10) {
             setWarn("Nazwa powinna mieć maksymalnie 60 znaków")
             setWarnIcon("")
+            setUpdateScheduleValid(false)
         }
         else if (schedule.description.length > 360) {
             setWarn("Opis powinien mieć maksymalnie 360 znaków")
             setWarnIcon("")
+            setUpdateScheduleValid(false)
         }
         else if (schedule.week.length < 1 && schedule.week.length > 52) {
             setWarn("Numer tygodnia powinien być liczbą w przedziale 1 - 52")
             setWarnIcon("")
+            setUpdateScheduleValid(false)
         }
         else if (isNaN(week)) {
             setWarn("Numer tygodnia musi być liczbą")
             setWarnIcon("")
+            setUpdateScheduleValid(false)
         }
         else {
             setWarn(""),
             setWarnIcon("disabled")
-            setcreateScheduleValid(true)
+            setUpdateScheduleValid(true)
         }
     }
 
     const onClick = (e) => {
         e.preventDefault();
-        if(createScheduleValid === true){
-            const newSchedule = {
+        if(updateScheduleValid === true) {
+            const updateSchedule = {
                 user: localUser,
                 scheduleName: schedule.name,
                 description: schedule.description,
                 week: schedule.week,
-                recipes: recipeSelect
+                recipes: recipeSelect,
             };
-            createSchedule(newSchedule);
-        }
+            putSchedule(updateSchedule, editID)
+            console.log(updateSchedule)
+        };
+        localStorage.removeItem("editScheduleID")
+        window.location.reload()
     }
 
     return recipesList ?
@@ -129,8 +150,8 @@ const AddSchedule = () => {
                     <div className="container-schedule">
                         <div className="content-schedule">
                             <div className="header">
-                                <h1>nowy plan</h1>
-                                <button onClick={onClick}><Link to="/"><a>Zapisz zmiany</a></Link></button>
+                                <h1>edytuj plan</h1>
+                                <button onClick={onClick}><Link to="/schedulesList"><a>Zapisz i zamknij</a></Link></button>
                             </div>
                             <div className="about-schedule">
                                 <form>

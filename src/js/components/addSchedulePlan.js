@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { newSchedule } from './dataFunc';
+import { Link } from 'react-router-dom';
 import '../../scss/style.scss';
 
 const AddSchedulePlan = () => {

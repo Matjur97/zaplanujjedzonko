@@ -1,382 +1,234 @@
 {
   "users": [
     {
-      "name": "gdfgdfgdf",
+      "name": "test1",
       "id": 1
     },
     {
-      "name": "test",
+      "name": "test2",
       "id": 2
     },
     {
-      "name": "dsadsa",
+      "name": "test1",
       "id": 3
-    },
-    {
-      "name": "aaaddd",
-      "id": 4
-    },
-    {
-      "name": "aaasss",
-      "id": 5
-    },
-    {
-      "name": "aaasss",
-      "id": 6
-    },
-    {
-      "name": "fdsfgh",
-      "id": 7
-    },
-    {
-      "name": "ewqqwe",
-      "id": 8
-    },
-    {
-      "name": "asaaaa",
-      "id": 9
-    },
-    {
-      "name": "asaaaa",
-      "id": 10
-    },
-    {
-      "name": "sddsds",
-      "id": 11
-    },
-    {
-      "name": "test2",
-      "id": 12
-    },
-    {
-      "recipeName": "test4",
-      "description": "test4",
-      "instruction": "test4",
-      "ingredients": "test4",
-      "id": 13
-    },
-    {
-      "recipeName": "test4",
-      "description": "test4",
-      "instruction": "test4",
-      "ingredients": "test4",
-      "id": 14
-    },
-    {
-      "name": "test3",
-      "id": 15
-    },
-    {
-      "name": "test3",
-      "id": 16
-    },
-    {
-      "name": "test3",
-      "id": 17
-    },
-    {
-      "name": "test3",
-      "id": 18
     }
   ],
   "recipes": [
     {
-      "user": "test2",
-      "recipeName": "asas",
-      "description": "asas",
-      "instruction": "asasa",
-      "ingredients": "sasa",
+      "user": "test1",
+      "recipeName": "Herbata",
+      "description": "Przepis na herbatę",
+      "instruction": [
+        "zagotuj wodę w czajniku",
+        "zalej torebkę herbaty w kubku",
+        "dodaj cukier do smaku",
+        "wypij"
+      ],
+      "ingredients": [
+        "woda",
+        "torebka herbaty",
+        "cukier",
+        "kubek"
+      ],
       "id": 1
     },
     {
-      "user": "test2",
-      "recipeName": "asaswww",
-      "description": "asaswww",
-      "instruction": "asasa",
-      "ingredients": "sasa",
+      "user": "test1",
+      "recipeName": "test1",
+      "description": "aaa",
+      "instruction": [
+        "jeden",
+        "dwa",
+        "trzy"
+      ],
+      "ingredients": [
+        "pierwszy",
+        "drugi",
+        "trzeci"
+      ],
       "id": 2
     },
     {
-      "user": "test2",
-      "recipeName": "asaswww222",
-      "description": "asaswww222",
-      "instruction": "asasa",
-      "ingredients": "sasa",
+      "user": "test1",
+      "recipeName": "aaa",
+      "description": "aaa",
+      "instruction": [
+        "aaa",
+        "aaa",
+        "aaa"
+      ],
+      "ingredients": [
+        "test4",
+        "test4",
+        "test4"
+      ],
       "id": 3
     },
     {
-      "user": "test2",
-      "recipeName": "asaswww222333",
-      "description": "asaswww222333",
-      "instruction": "asasa",
-      "ingredients": "sasa",
+      "user": "test1",
+      "recipeName": "bbb",
+      "description": "bbb",
+      "instruction": [
+        "bbb",
+        "bbb",
+        "bbb"
+      ],
+      "ingredients": [
+        "bbb",
+        "bbb",
+        "bbb"
+      ],
       "id": 4
     },
     {
-      "user": "test3",
-      "recipeName": "rtyrty",
-      "description": "Sddasd  saddsad sd sadsad dsad asd sd sd asd sdsad sdlk hjkhfj hjdsh sfd df bdafjh lf j ds ds  dsf sdf s dfd fds dsf dfe ed sad efwsd sdWE EFZZCFD WEDssd wEFWEFWEd zs ewfwefWDED WEFRWEzd ewfwed sddsd wfweew dwef wf wef wedfwedf fwed wed edwed  efd we ded WD EDS DWD W Dd WED Wfweasf ewf ergwaw eweef wewe weEWD Wewf wegervty k ktyu r ge wre tyth rewt rt r wd w",
-      "instruction": "rtt",
-      "ingredients": "rtrt",
-      "id": 5
-    },
-    {
-      "user": "test3",
-      "recipeName": "rtyrty444444333",
-      "description": "rttrrrr4344211",
-      "instruction": "rtt",
-      "ingredients": "rtrt",
-      "id": 7
-    },
-    {
-      "user": "test3",
-      "id": 9
-    },
-    {
-      "user": "test3",
-      "id": 11
-    },
-    {
-      "user": "test3",
-      "id": 12
-    },
-    {
-      "user": "test3",
-      "id": 13
-    },
-    {
-      "user": "test3",
-      "id": 14
-    },
-    {
-      "user": "test3",
-      "id": 15
-    },
-    {
-      "user": "test3",
-      "id": 16
-    },
-    {
-      "user": "test3",
-      "recipeName": "test6",
-      "description": "3434",
-      "id": 17
-    },
-    {
-      "user": "test3",
-      "recipeName": "test4",
-      "description": "sdsd",
+      "user": "test1",
+      "recipeName": "ccc",
+      "description": "ccc",
       "instruction": [
-        "sadsad",
-        "sdassd"
-      ],
-      "id": 18
-    },
-    {
-      "user": "test3",
-      "recipeName": "www",
-      "description": "q11",
-      "instruction": [
-        "asd",
-        "sdsds",
-        "sadsad",
-        "sadasd",
-        "sdsd"
+        "ccc",
+        "ccc",
+        "ccc"
       ],
       "ingredients": [
-        "2e"
+        "ccc",
+        "cc",
+        "ccc"
       ],
-      "id": 19
-    },
-    {
-      "user": "test3",
-      "recipeName": "sad",
-      "description": "",
-      "instruction": [],
-      "ingredients": [],
-      "id": 20
-    },
-    {
-      "user": "test3",
-      "recipeName": "sad",
-      "description": "s",
-      "instruction": [],
-      "ingredients": [],
-      "id": 21
-    },
-    {
-      "user": "test3",
-      "recipeName": "das",
-      "description": "",
-      "instruction": [],
-      "ingredients": [],
-      "id": 22
-    },
-    {
-      "user": "test3",
-      "recipeName": "das",
-      "description": "",
-      "instruction": [],
-      "ingredients": [],
-      "id": 23
-    },
-    {
-      "user": "test3",
-      "recipeName": "sdad",
-      "description": "",
-      "instruction": [],
-      "ingredients": [],
-      "id": 24
-    },
-    {
-      "user": "test3",
-      "recipeName": "",
-      "description": "",
-      "instruction": [],
-      "ingredients": [],
-      "id": 25
-    },
-    {
-      "user": "test3",
-      "recipeName": "test4",
-      "description": "sad",
-      "instruction": [],
-      "ingredients": [],
-      "id": 26
-    },
-    {
-      "user": "test3",
-      "recipeName": "sdas",
-      "description": "asds",
-      "instruction": [],
-      "ingredients": [],
-      "id": 27
-    },
-    {
-      "user": "test3",
-      "recipeName": "sdas",
-      "description": "asds",
-      "instruction": [],
-      "ingredients": [],
-      "id": 28
-    },
-    {
-      "user": "test3",
-      "recipeName": "ads",
-      "description": "dsa",
-      "instruction": [],
-      "ingredients": [],
-      "id": 29
-    },
-    {
-      "user": "test3",
-      "recipeName": "asd",
-      "description": "asd",
-      "instruction": [],
-      "ingredients": [],
-      "id": 30
-    },
-    {
-      "user": "test3",
-      "recipeName": "asd",
-      "description": "asd",
-      "instruction": [],
-      "ingredients": [],
-      "id": 31
-    },
-    {
-      "user": "test3",
-      "recipeName": "asd",
-      "description": "asd",
-      "instruction": [],
-      "ingredients": [],
-      "id": 32
-    },
-    {
-      "user": "test3",
-      "recipeName": "asd",
-      "description": "asd",
-      "instruction": [],
-      "ingredients": [],
-      "id": 33
-    },
-    {
-      "user": "test3",
-      "recipeName": "asd",
-      "description": "asd",
-      "instruction": [],
-      "ingredients": [],
-      "id": 34
-    },
-    {
-      "user": "test3",
-      "recipeName": "test4",
-      "description": "46546",
-      "instruction": [],
-      "ingredients": [],
-      "id": 35
-    },
-    {
-      "user": "test3",
-      "recipeName": "asaswww222333",
-      "description": "99887",
-      "instruction": [],
-      "ingredients": [],
-      "id": 36
-    },
-    {
-      "user": "test3",
-      "recipeName": "test4",
-      "description": "6544",
-      "instruction": [],
-      "ingredients": [],
-      "id": 37
+      "id": 5
     }
   ],
   "schedules": [
     {
-      "user": "test3",
-      "scheduleName": "dsadsa",
-      "description": "ererwre",
+      "user": "test1",
+      "scheduleName": "aaa",
+      "description": "aaa",
+      "week": "29",
+      "recipes": {
+        "MondayBreakfast": "Herbata",
+        "MondaySecBreakfast": "test1",
+        "MondaySoup": "aaa",
+        "MondayLunch": "bbb",
+        "MondayDinner": "ccc",
+        "TuesdayBreakfast": "test1",
+        "TuesdaySecBreakfast": "aaa",
+        "TuesdaySoup": "bbb",
+        "TuesdayLunch": "ccc",
+        "TuesdayDinner": "Herbata",
+        "WednesdayBreakfast": "aaa",
+        "WednesdaySecBreakfast": "bbb",
+        "WednesdaySoup": "ccc",
+        "WednesdayLunch": "Herbata",
+        "WednesdayDinner": "test1",
+        "ThursdayBreakfast": "bbb",
+        "ThursdaySecBreakfast": "ccc",
+        "ThursdaySoup": "Herbata",
+        "ThursdayLunch": "test1",
+        "ThursdayDinner": "aaa",
+        "FridayBreakfast": "ccc",
+        "FridaySecBreakfast": "Herbata",
+        "FridaySoup": "test1",
+        "FridayLunch": "aaa",
+        "FridayDinner": "bbb",
+        "SaturdayBreakfast": "Herbata",
+        "SaturdaySecBreakfast": "test1",
+        "SaturdaySoup": "aaa",
+        "SaturdayLunch": "bbb",
+        "SaturdayDinner": "ccc",
+        "SundayBreakfast": "test1",
+        "SundaySecBreakfast": "aaa",
+        "SundaySoup": "bbb",
+        "SundayLunch": "ccc",
+        "SundayDinner": "Herbata"
+      },
+      "id": 1
+    },
+    {
+      "user": "test1",
+      "scheduleName": "bbb",
+      "description": "bbb",
       "week": "28",
       "recipes": {
-        "MondayBreakfast": "",
-        "MondaySecBreakfast": "",
-        "MondaySoup": "",
-        "MondayLunch": "",
-        "MondayDinner": "",
-        "TuesdayBreakfast": "",
-        "TuesdaySecBreakfast": "",
-        "TuesdaySoup": "",
-        "TuesdayLunch": "",
-        "TuesdayDinner": "",
-        "WednesdayBreakfast": "",
-        "WednesdaySecBreakfast": "",
-        "WednesdaySoup": "",
-        "WednesdayLunch": "",
-        "WednesdayDinner": "",
-        "ThursdayBreakfast": "",
-        "ThursdaySecBreakfast": "",
-        "ThursdaySoup": "",
-        "ThursdayLunch": "",
-        "ThursdayDinner": "",
-        "FridayBreakfast": "",
-        "FridaySecBreakfast": "",
-        "FridaySoup": "",
-        "FridayLunch": "",
-        "FridayDinner": "",
-        "SaturdayBreakfast": "",
-        "SaturdaySecBreakfast": "",
-        "SaturdaySoup": "",
-        "SaturdayLunch": "",
-        "SaturdayDinner": "",
-        "SundayBreakfast": "",
-        "SundaySecBreakfast": "",
-        "SundaySoup": "",
-        "SundayLunch": "",
-        "SundayDinner": ""
+        "MondayBreakfast": "test1",
+        "MondaySecBreakfast": "aaa",
+        "MondaySoup": "bbb",
+        "MondayLunch": "ccc",
+        "MondayDinner": "test1",
+        "TuesdayBreakfast": "aaa",
+        "TuesdaySecBreakfast": "bbb",
+        "TuesdaySoup": "ccc",
+        "TuesdayLunch": "Herbata",
+        "TuesdayDinner": "aaa",
+        "WednesdayBreakfast": "bbb",
+        "WednesdaySecBreakfast": "ccc",
+        "WednesdaySoup": "Herbata",
+        "WednesdayLunch": "test1",
+        "WednesdayDinner": "bbb",
+        "ThursdayBreakfast": "ccc",
+        "ThursdaySecBreakfast": "Herbata",
+        "ThursdaySoup": "test1",
+        "ThursdayLunch": "aaa",
+        "ThursdayDinner": "ccc",
+        "FridayBreakfast": "Herbata",
+        "FridaySecBreakfast": "test1",
+        "FridaySoup": "aaa",
+        "FridayLunch": "bbb",
+        "FridayDinner": "Herbata",
+        "SaturdayBreakfast": "test1",
+        "SaturdaySecBreakfast": "aaa",
+        "SaturdaySoup": "bbb",
+        "SaturdayLunch": "ccc",
+        "SaturdayDinner": "test1",
+        "SundayBreakfast": "aaa",
+        "SundaySecBreakfast": "bbb",
+        "SundaySoup": "ccc",
+        "SundayLunch": "Herbata",
+        "SundayDinner": "aaa"
       },
       "id": 2
+    },
+    {
+      "user": "test1",
+      "scheduleName": "bbb",
+      "description": "bbb",
+      "week": "30",
+      "recipes": {
+        "MondayBreakfast": "aaa",
+        "MondaySecBreakfast": "bbb",
+        "MondaySoup": "ccc",
+        "MondayLunch": "Herbata",
+        "MondayDinner": "test1",
+        "TuesdayBreakfast": "bbb",
+        "TuesdaySecBreakfast": "ccc",
+        "TuesdaySoup": "Herbata",
+        "TuesdayLunch": "test1",
+        "TuesdayDinner": "aaa",
+        "WednesdayBreakfast": "ccc",
+        "WednesdaySecBreakfast": "Herbata",
+        "WednesdaySoup": "test1",
+        "WednesdayLunch": "aaa",
+        "WednesdayDinner": "bbb",
+        "ThursdayBreakfast": "Herbata",
+        "ThursdaySecBreakfast": "test1",
+        "ThursdaySoup": "aaa",
+        "ThursdayLunch": "bbb",
+        "ThursdayDinner": "bbb",
+        "FridayBreakfast": "test1",
+        "FridaySecBreakfast": "aaa",
+        "FridaySoup": "bbb",
+        "FridayLunch": "ccc",
+        "FridayDinner": "ccc",
+        "SaturdayBreakfast": "aaa",
+        "SaturdaySecBreakfast": "bbb",
+        "SaturdaySoup": "ccc",
+        "SaturdayLunch": "Herbata",
+        "SaturdayDinner": "Herbata",
+        "SundayBreakfast": "bbb",
+        "SundaySecBreakfast": "ccc",
+        "SundaySoup": "Herbata",
+        "SundayLunch": "test1",
+        "SundayDinner": "test1"
+      },
+      "id": 3
     }
   ]
 }

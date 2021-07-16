@@ -16,6 +16,8 @@ import ScheduleList from './components/schedulesList';
 import AddRecipe from './components/addRecipe';
 import Main from './components/main';
 import AddSchedule from './components/addSchedule';
+import EditRecipe from './components/editRecipe';
+import EditSchedule from './components/editSchedule'
 
 function App() {
 
@@ -31,6 +33,8 @@ function App() {
                     <Route exact path="/schedulesList" component={localStorage.getItem('userName') ? ScheduleList : LogoutPage} />
                     <Route exact path="/addRecipe" component={localStorage.getItem('userName') ? AddRecipe : LogoutPage} />
                     <Route exact path="/addSchedule" component={localStorage.getItem('userName') ? AddSchedule : LogoutPage} />
+                    <Route exact path="/editRecipe" component={localStorage.getItem('userName') ? EditRecipe : LogoutPage} />
+                    <Route exact path="/editSchedule" component={localStorage.getItem('userName') ? EditSchedule : LogoutPage} />
                 </Switch>
             </section>
 

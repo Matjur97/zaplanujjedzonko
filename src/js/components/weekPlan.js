@@ -1,30 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {
-    HashRouter,
-    Route,
-    Link,
-    Switch,
-    NavLink,
-} from 'react-router-dom';
 import '../../scss/style.scss';
 
 const WeekPlan = () => {
     const [weekNumber, setWeekNumber] = useState(29)
     const [scheduleList, setScheduleList] = useState(null);
 
-
-    // useEffect(() => {
-    //     const currentdate = new Date();
-    //     const oneJan = new Date(currentdate.getFullYear(), 0, 1);
-    //     const numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
-    //     const result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);    
-    //     setWeekNumber(prev => prev + result)
-    // }, [])
-
-    // console.log("result " + result)
-
     const localUser = localStorage.getItem('userName')
-    const asd = weekNumber
 
     useEffect(() => {
         fetch(`http://localhost:3005/schedules?user=${localUser}&week=${weekNumber}`)
@@ -33,9 +14,6 @@ const WeekPlan = () => {
             .then(scheduleList => setScheduleList(scheduleList))
             .catch((err) => console.warn(err))
     }, [weekNumber]);
-
-    console.log(scheduleList)
-    console.log(weekNumber)
 
     return scheduleList ?
         <div className="plan-table">

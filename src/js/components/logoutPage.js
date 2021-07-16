@@ -1,11 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import {
-    HashRouter,
-    Route,
-    Link,
-    Switch,
-    NavLink,
-} from 'react-router-dom';
 import '../../scss/style.scss';
 import { getUser, createUser } from './dataFunc';
 
@@ -63,11 +56,6 @@ const LogoutPage = () => {
             createUser(userName, (data) => {
                 console.log(data)
             });
-
-            // userMap();
-
-            // console.log(users)
-
             localStorage.setItem('userName', name);
             window.location.reload();
             console.log(localStorage.getItem('userName'))

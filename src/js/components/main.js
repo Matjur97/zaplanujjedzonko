@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import {
-    HashRouter,
-    Route,
-    Link,
-    Switch,
-    NavLink,
-} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import '../../scss/style.scss';
 import WeekPlan from './weekPlan';
 
 const Main = () => {
-    return (
+    const [recipesList, setRecipesList] = useState(null);
+
+    const localUser = localStorage.getItem("userName")
+
+    useEffect(() => {
+        fetch(`http://localhost:3005/recipes?user=${localUser}`)
+        .then(res => res.json())
+        .then(data => data)
+        .then(recipesList => setRecipesList(recipesList))
+        .catch(err => console.warn(err))
+      })
+
+    return recipesList ?
         <section className="application">
             <div className="main-page">
                 <div className="container-app">
@@ -32,7 +38,7 @@ const Main = () => {
                         <div className="notifications">
                             <div className="notif notif-info">
                                 <i class="fas fa-info-circle"></i>
-                                <h3>Masz 99 przepisów</h3>
+                                <h3>Masz {recipesList.length} przepisów</h3>
                             </div>
                             <div className="notif notif-warn">
                                 <i class="fas fa-exclamation-circle"></i>
@@ -50,7 +56,7 @@ const Main = () => {
                 </div>
             </div>
         </section>
-    )
+    :<h1>Ładowanie danych</h1>
 }
 
 export default Main;

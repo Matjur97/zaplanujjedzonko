@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { createRecipe } from './dataFunc';
+import { putRecipe } from "./dataFunc";
 import '../../scss/style.scss';
 
-const AddRecipe = () => {
-    const [recipe, setRecipe] = useState({
+const EditRecipe = () => {
+    const [editRecipe, setEditRecipe] = useState({
         recipeName: "",
         description: "",
         instruction: "",
         ingredients: ""
     });
-    const [instructionsArr, setInstructionsArr] = useState([]);
-    const [ingredientsArr, setIngredientsArr] = useState([]);
+    const [editInstructionsArr, setEditInstructionsArr] = useState([]);
+    const [editIngredientsArr, setEditIngredientsArr] = useState([]);
     const [warn, setWarn] = useState("");
     const [warnIcon, setWarnIcon] = useState("disabled");
-    const [createRecipeValid, setCreateRecipeValid] = useState(false);
+    const [updateRecipeValid, setUpdateRecipeValid] = useState(true);
 
     const localUser = localStorage.getItem('userName');
+    const API = "http://localhost:3005/recipes";
+    const editID = localStorage.getItem("editRecipeID");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setRecipe(prevState => {
+        setEditRecipe(prevState => {
             return {
                 ...prevState,
                 [name]: value
@@ -28,75 +30,102 @@ const AddRecipe = () => {
         })
     };
 
+    useEffect(() => {
+        fetch(`${API}/${editID}`)
+            .then(res => res.json())
+            .then(data => {
+                setEditRecipe({recipeName: data.recipeName, 
+                    description: data.description,
+                })
+                setEditInstructionsArr(data.instruction)
+                setEditIngredientsArr(data.ingredients)
+            })
+            .catch((err) => console.warn(err))
+    }, []);
+
+    const handleBlur = () => {
+        if (editRecipe.recipeName.length === 0){
+            setWarn("Żadne pole nie może być puste")
+            setWarnIcon("")
+            setUpdateRecipeValid(false)
+        }
+        else if (editRecipe.description.length === 0){
+            setWarn("Żadne pole nie może być puste")
+            setWarnIcon("")
+            setUpdateRecipeValid(false)
+        }
+        else if (editRecipe.recipeName.length <3){
+            setWarn("Minimalna ilość znaków to 3")
+            setWarnIcon("")
+            setUpdateRecipeValid(false)
+        }
+        else if (editRecipe.description.length <3){
+            setWarn("Minimalna ilość znaków to 3")
+            setWarnIcon("")
+            setUpdateRecipeValid(false)
+        }
+        else if (editRecipe.recipeName.length > 60) {
+            setWarn("Nazwa powinna mieć maksymalnie 60 znaków")
+            setWarnIcon("")
+            setUpdateRecipeValid(false)
+        }
+        else if (editRecipe.description.length > 360) {
+            setWarn("Opis powinien mieć maksymalnie 360 znaków")
+            setWarnIcon("")
+            setUpdateRecipeValid(false)
+        }
+        else {
+            setWarn("")
+            setWarnIcon("disabled")
+            setUpdateRecipeValid(true)
+        }
+
+    }
+
+   const onClick = (e) => {
+        e.preventDefault();
+        if(updateRecipeValid === true){
+            const updateRecipe = {
+                user: localUser,
+                recipeName: editRecipe.recipeName,
+                description: editRecipe.description,
+                instruction: editInstructionsArr,
+                ingredients: editIngredientsArr
+            };
+        putRecipe(updateRecipe, editID)
+        };
+        localStorage.removeItem("editRecipeID")
+        window.location.reload();
+    }
+
     const handleInstArrClick = (e) => {
         e.preventDefault();
-        if(recipe.instruction.length !== 0){
-        setInstructionsArr([
-            ...instructionsArr,
-            recipe.instruction
+        if(editRecipe.instruction.length !== 0){
+        setEditInstructionsArr([
+            ...editInstructionsArr,
+            editRecipe.instruction
         ]);
-        setRecipe({ instruction: "" })};
+        setEditRecipe({ instruction: "" })};
     };
     const handleIngrArrClick = (e) => {
         e.preventDefault();
-        if(recipe.ingredients.length !== 0){
-        setIngredientsArr([
-            ...ingredientsArr,
-            recipe.ingredients
+        if(editRecipe.ingredients.length !== 0){
+        setEditIngredientsArr([
+            ...editIngredientsArr,
+            editRecipe.ingredients
         ]);
-        setRecipe({ingredients: ""})};
+        setEditRecipe({ingredients: ""})};
     };
 
-    const handleBlur = () => {
-        if (recipe.recipeName.length === 0){
-            setWarn("Żadne pole nie może być puste")
-            setWarnIcon("")
-        } else if (recipe.description.length === 0){
-            setWarn("Żadne pole nie może być puste")
-            setWarnIcon("")
-        } else if (recipe.recipeName.length <3){
-            setWarn("Minimalna ilość znaków to 3")
-            setWarnIcon("")
-        } else if (recipe.description.length <3){
-            setWarn("Minimalna ilość znaków to 3")
-            setWarnIcon("")
-        } else if (recipe.recipeName.length > 60) {
-            setWarn("Nazwa powinna mieć maksymalnie 60 znaków")
-            setWarnIcon("")
-        } else if (recipe.description.length > 360) {
-            setWarn("Opis powinien mieć maksymalnie 360 znaków")
-            setWarnIcon("")
-        } else {
-            setWarn("")
-            setWarnIcon("disabled")
-            setCreateRecipeValid(true)
-        }
-
-    };
-
-    const onClick = (e) => {
-        e.preventDefault();
-        if(createRecipeValid === true){
-            const newRecipe = {
-                user: localUser,
-                recipeName: recipe.recipeName,
-                description: recipe.description,
-                instruction: instructionsArr,
-                ingredients: ingredientsArr
-            };
-        createRecipe(newRecipe)
-        };
-    };
-
-    return (
+    return editRecipe ?
         <section className="application">
             <div className="display-add-recipe">
                 <div className="add-recipe-page">
                     <div className="container-recipe">
                         <div className="content-recipe">
                             <div className="header">
-                                <h1>nowy przepis</h1>
-                                <button onClick={onClick}><Link to="/"><a>Zapisz zmiany</a></Link></button>
+                                <h1>edytuj przepis</h1>
+                                <button onClick={onClick}><Link to="/recipelist"><a>Zapisz i zamknij</a></Link></button>
                             </div>
                             <div className="about-recipe">
                             <div className="warn"><span className={warnIcon}>
@@ -107,12 +136,12 @@ const AddRecipe = () => {
                                 <form>
                                     <label> Nazwa przepisu
                                         <input type="text" name="recipeName" onBlur={handleBlur}
-                                            value={recipe.name} onChange={handleChange}>
+                                            value={editRecipe.recipeName} onChange={handleChange}>
                                         </input>
                                     </label>
                                     <label> Opis przepisu
                                         <textarea rows="4" name="description" onBlur={handleBlur}
-                                            value={recipe.description} onChange={handleChange}>
+                                            value={editRecipe.description} onChange={handleChange}>
                                         </textarea>
                                     </label>
                                 </form>
@@ -123,20 +152,19 @@ const AddRecipe = () => {
                                     <div className="input">
                                         <form>
                                             <textarea rows="4" name="instruction"
-                                                value={recipe.instruction} onChange={handleChange}>
+                                                value={editRecipe.instruction} onChange={handleChange}>
                                             </textarea>
                                             <button onClick={handleInstArrClick} className="fas fa-plus-square"></button>
                                         </form>
 
-                                    </div>
-                                    
+                                    </div>  
                                 </div>
                                 <div className="recipe">
                                     <h1>składniki</h1>
                                     <div className="input">
                                         <form>
                                             <input type="text" name="ingredients"
-                                                value={recipe.ingredients} onChange={handleChange}>
+                                                value={editRecipe.ingredients} onChange={handleChange}>
                                             </input>
                                             <button onClick={handleIngrArrClick} className="fas fa-plus-square"
                                                 type="submit" >
@@ -149,14 +177,14 @@ const AddRecipe = () => {
                             <div className="list">
                             <div className="list-map">
                                         <ul>
-                                            {instructionsArr.map((el, i) => {
+                                            {editInstructionsArr.map((el, i) => {
                                                 return <li key={i}><span>{i + 1}. </span>{el}</li>
                                             })}
                                         </ul>
                                     </div>
                             <div className="list-map">
                                 <ul>
-                                    {ingredientsArr.map((el, i) => {
+                                    {editIngredientsArr.map((el, i) => {
                                         return <li key={i}><span>{i + 1}. </span>{el}</li>
                                     })}
                                 </ul>
@@ -168,7 +196,7 @@ const AddRecipe = () => {
                 </div>
             </div>
         </section>
-    )
+    : <h1>Ładowanie danych</h1>
 }
 
-export default AddRecipe;
+export default EditRecipe;

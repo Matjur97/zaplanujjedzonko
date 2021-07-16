@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {
-    HashRouter,
-    Route,
-    Link,
-    Switch,
-    NavLink,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../../scss/style.scss';
 
 const RecipeList = () => {
     const [recipesList, setRecipesList] = useState(null)
-
+    const [ID, setID] = useState(localStorage.getItem('editRecipeID'))
     const localUser = localStorage.getItem('userName')
     const API = "http://localhost:3005/recipes";
 
@@ -22,9 +16,9 @@ const RecipeList = () => {
             .catch((err) => console.warn(err))
     }, []);
 
-    const handleDelete = (asd, event) => {
+    const handleDelete = (id, event) => {
         event.preventDefault();
-        fetch(API + "/" + asd, { 
+        fetch(API + "/" + id, { 
         method: "DELETE",
         headers: {
             'Content-type': 'application/json'
@@ -33,6 +27,15 @@ const RecipeList = () => {
         .then(response => response.json())
         .then(res => console.log(res))
         window.location.reload();
+    }
+
+    const handleEdit = (id, event) => {
+        event.preventDefault();
+        if (typeof ID === 'number'){
+            localStorage.removeItem('editRecipeID')
+        };
+         
+        localStorage.setItem('editRecipeID', id)
     }
 
     return recipesList ?
@@ -59,7 +62,15 @@ const RecipeList = () => {
                                                 <td>{el.id}</td>
                                                 <td>{el.recipeName}</td>
                                                 <td>{el.description}</td>
-                                                <td><button onClick={event => handleDelete(el.id, event)}><i class="fas fa-trash-alt"></i></button></td>
+                                                <td>
+                                                    <button onClick={event => handleDelete(el.id, event)}>
+                                                        <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onClick={event => handleEdit(el.id, event)}>
+                                                            <Link to="/editRecipe"><i class="fas fa-edit"></i></Link>
+                                                            </button>
+                                                        </td>
+                                                <td></td>
                                             </tr>
                                         })}
                                     </tbody>

@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import {
-    HashRouter,
-    Route,
-    Link,
-    Switch,
-    NavLink,
-} from 'react-router-dom';
+import React, { useState } from 'react';
 import '../../scss/style.scss';
-import { getUser, createUser } from './loginVerif';
+import { createUser } from './loginVerif';
 
 const LogoutPage = () => {
     const [name, setName] = useState("podaj swoje imię");
@@ -46,7 +39,6 @@ const LogoutPage = () => {
             window.location.reload();
             console.log(localStorage.getItem('userName'))
         }
-
     }
 
     return (

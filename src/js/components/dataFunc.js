@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const API = "http://localhost:3005";
-const localUser = localStorage.getItem('userName');
 
 export const getUser = (successCallback) => {
     fetch(`${API}/users/`)
@@ -63,4 +62,34 @@ export const createSchedule = (newSchedule) => {
     .catch(err => {
         console.log(err)
     })
+}
+
+export const putRecipe = (updateRecipe, id) => {
+    fetch(`${API}/recipes/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(updateRecipe),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(updateRecipe => {
+        console.log(updateRecipe)
+    })
+    .catch(err => {console.log(err)})
+}
+
+export const putSchedule = (updateSchedule, id) => {
+    fetch(`${API}/schedules/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(updateSchedule),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(updateSchedule => {
+        console.log(updateSchedule)
+    })
+    .catch(err => {console.log(err)})
 }
