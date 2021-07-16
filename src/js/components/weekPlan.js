@@ -9,16 +9,19 @@ import {
 import '../../scss/style.scss';
 
 const WeekPlan = () => {
+    const [weekNumber, setWeekNumber] = useState(29)
     const [scheduleList, setScheduleList] = useState(null);
-    const [weekNumber, setWeekNumber] = useState()
 
-    useEffect(() => {
-        const currentdate = new Date();
-        const oneJan = new Date(currentdate.getFullYear(), 0, 1);
-        const numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
-        const result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-        setWeekNumber(result)
-    }, [])
+
+    // useEffect(() => {
+    //     const currentdate = new Date();
+    //     const oneJan = new Date(currentdate.getFullYear(), 0, 1);
+    //     const numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
+    //     const result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);    
+    //     setWeekNumber(prev => prev + result)
+    // }, [])
+
+    // console.log("result " + result)
 
     const localUser = localStorage.getItem('userName')
     const asd = weekNumber
@@ -29,12 +32,12 @@ const WeekPlan = () => {
             .then(data => data)
             .then(scheduleList => setScheduleList(scheduleList))
             .catch((err) => console.warn(err))
-    }, []);
+    }, [weekNumber]);
 
     console.log(scheduleList)
     console.log(weekNumber)
 
-    return (
+    return scheduleList ?
         <div className="plan-table">
             <table>
                 <tbody>
@@ -51,49 +54,119 @@ const WeekPlan = () => {
                         <td>Niedziela</td>
                     </tr>
                     <tr>
-                        <td>Śniadanie</td>
-                        <td>Śniadanie</td>
-                        <td>Śniadanie</td>
-                        <td>Śniadanie</td>
-                        <td>Śniadanie</td>
-                        <td>Śniadanie</td>
-                        <td>Śniadanie</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.MondayBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.TuesdayBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.WednesdayBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.ThursdayBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.FridayBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SaturdayBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SundayBreakfast
+                        })}</td>
                     </tr>
                     <tr>
-                        <td>Drugie śniadanie</td>
-                        <td>Drugie śniadanie</td>
-                        <td>Drugie śniadanie</td>
-                        <td>Drugie śniadanie</td>
-                        <td>Drugie śniadanie</td>
-                        <td>Drugie śniadanie</td>
-                        <td>Drugie śniadanie</td>
+                    <td>{scheduleList.map((el) => {
+                           return el.recipes.MondaySecBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.TuesdaySecBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.WednesdaySecBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.ThursdaySecBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.FridaySecBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SaturdaySecBreakfast
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SundaySecBreakfast
+                        })}</td>
                     </tr>
                     <tr>
-                        <td>Zupa</td>
-                        <td>Zupa</td>
-                        <td>Zupa</td>
-                        <td>Zupa</td>
-                        <td>Zupa</td>
-                        <td>Zupa</td>
-                        <td>Zupa</td>
+                    <td>{scheduleList.map((el) => {
+                           return el.recipes.MondaySoup
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.TuesdaySoup
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.WednesdaySoup
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.ThursdaySoup
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.FridaySoup
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SaturdaySoup
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SundaySoup
+                        })}</td>
                     </tr>
                     <tr>
-                        <td>Drugie danie</td>
-                        <td>Drugie danie</td>
-                        <td>Drugie danie</td>
-                        <td>Drugie danie</td>
-                        <td>Drugie danie</td>
-                        <td>Drugie danie</td>
-                        <td>Drugie danie</td>
+                    <td>{scheduleList.map((el) => {
+                           return el.recipes.MondayLunch
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.TuesdayLunch
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.WednesdayLunch
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.ThursdayLunch
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.FridayLunch
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SaturdayLunch
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SundayLunch
+                        })}</td>
                     </tr>
                     <tr>
-                        <td>Kolacja</td>
-                        <td>Kolacja</td>
-                        <td>Kolacja</td>
-                        <td>Kolacja</td>
-                        <td>Kolacja</td>
-                        <td>Kolacja</td>
-                        <td>Kolacja</td>
+                    <td>{scheduleList.map((el) => {
+                           return el.recipes.MondayDinner
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.TuesdayDinner
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.WednesdayDinner
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.ThursdayDinner
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.FridayDinner
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SaturdayDinner
+                        })}</td>
+                        <td>{scheduleList.map((el) => {
+                           return el.recipes.SundayDinner
+                        })}</td>
                     </tr>
                 </tbody>
             </table>
@@ -102,7 +175,7 @@ const WeekPlan = () => {
                 <button onClick={() => setWeekNumber(weekNumber + 1)}>następny<i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-    )
+    : <h1>Ładowanie danych</h1>
 }
 
 export default WeekPlan;

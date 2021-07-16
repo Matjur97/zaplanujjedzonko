@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     HashRouter,
     Route,
@@ -9,7 +9,33 @@ import {
 import '../../scss/style.scss';
 
 const ScheduleList = () => {
-    return (
+    const [schedulesList, setSchedulesList] = useState(null)
+
+    const localUser = localStorage.getItem('userName')
+    const API = "http://localhost:3005/schedules";
+
+    useEffect(() => {
+        fetch(`${API}?user=${localUser}`)
+            .then(res => res.json())
+            .then(data => data)
+            .then(schedulesList => setSchedulesList(schedulesList))
+            .catch((err) => console.warn(err))
+    }, []);
+
+    const handleDelete = (asd, event) => {
+        event.preventDefault();
+        fetch(API + "/" + asd, { 
+        method: "DELETE",
+        headers: {
+            'Content-type': 'application/json'
+        },
+    })
+        .then(response => response.json())
+        .then(res => console.log(res))
+        window.location.reload();
+    }
+
+    return schedulesList ?
         <section className="application">
         <div className="display-schedule-list">
             <div className="schedule-list-page">
@@ -29,6 +55,15 @@ const ScheduleList = () => {
                                         <th>tydzień</th>
                                         <th>akcje</th>
                                     </tr>
+                                    {schedulesList.map((el, i) => {
+                                        return <tr>
+                                            <td>{el.id}</td>
+                                            <td>{el.scheduleName}</td>
+                                            <td>{el.description}</td>
+                                            <td>{el.week}</td>
+                                            <td><button onClick={event => handleDelete(el.id, event)}><i class="fas fa-trash-alt"></i></button></td>
+                                        </tr>
+                                    })}
                                 </tbody>
                             </table>
                         </div>
@@ -37,7 +72,7 @@ const ScheduleList = () => {
             </div>
         </div>
         </section>
-    )
+    :<h1>Ładowanie danych</h1>
 }
 
 export default ScheduleList;
